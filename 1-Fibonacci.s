@@ -8,15 +8,22 @@ fibonacci:
   li $t1, 0 # $t1 = 0 : loop counter
   j cond
   compute_next:
-  mov $t2, $t0       # $t2 = $t0
+  move $t2, $t0      # $t2 = $t0
   add $t0, $t0, $v0  # $t0 += $v0
-  mov $v0, $t2       # $v0 = $t2
+  move $v0, $t2      # $v0 = $t2
   addi $t1, $t1, 1   # $t1 += 1
   cond:
   blt $t1, $a0, compute_next # if i < n goto compute_next 
   jr $ra
   
 main:
+  li $a0, 5
   jal fibonacci
+  move $a0, $v0
+  li $v0, 1 # print_int
+  syscall
+exit:
+  li $v0, 10 # exit
+  syscall
   
   
