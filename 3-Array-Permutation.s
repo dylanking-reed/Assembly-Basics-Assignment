@@ -44,10 +44,10 @@ array_permutation:
     add $a1, $a0, $t3 # &array[permutations[i]] : $a1 = array + *(permutations + i_bytes)
     jal swap
     
-    lw $a0, 0($sp)
+    lw $a1, 0($sp)
     addi $sp, $sp, 4
 
-    lw $a1, 0($sp)
+    lw $a0, 0($sp)
     addi $sp, $sp, 4
 
     addi $t0, $t0, 1
